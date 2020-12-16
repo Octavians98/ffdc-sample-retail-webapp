@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
+import { Component, ChangeDetectorRef, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavigationNode } from './components/app-layout/navigation-node';
 import { Store, select } from '@ngrx/store';
 import { AppState, selectRouteData, selectAllAccounts, selectRouteParams } from './store/reducers';
@@ -12,9 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   navbarMenuData: NavigationNode[] = [];
-
+  showBanner = false;
   isHomePage$: Observable<boolean>;
 
   constructor(store: Store<AppState>, private router: Router, private cd: ChangeDetectorRef) {
@@ -28,7 +28,6 @@ export class AppComponent {
       store.pipe(select(selectRouteParams)),
       store.pipe(select(selectRouteData))
     ).subscribe(([accounts, routeParams, routeData]) => {
-      console.log("routeParams", routeParams);
       if (routeData) {
         console.log("RouteData", routeData);
         if (routeData.viewId === 'accounts') {
@@ -59,5 +58,14 @@ export class AppComponent {
         this.cd.markForCheck();
       }
     });
+  }
+  ngOnInit(): void {
+    this.loading();
+  }
+
+  loading(){
+    setTimeout(() =>{ 
+        this.showBanner = true; 
+    }, 5000);
   }
 }

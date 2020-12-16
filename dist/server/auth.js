@@ -23,10 +23,12 @@ function initialize(app) {
             client_secret: config_1.AuthConfig.client_secret
         });
         client.CLOCK_TOLERANCE = 10;
+        const uuid = require('uuid');
         const params = {
             redirect_uri: config_1.AuthConfig.redirect_uri,
             response_type: 'code',
-            scope: 'openid profile email User.Read offline_access'
+            scope: 'openid profile email User.Read offline_access',
+            nonce: uuid.v4()
         };
         passport_1.default.use('oidc', new Strategy({ client, params, passReqToCallback: true }, (req, tokenset, done) => {
             done(null, {

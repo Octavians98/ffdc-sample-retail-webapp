@@ -131,6 +131,7 @@ export class AccountTransactionComponent implements OnInit, OnDestroy {
       startDate: dateFormat(startDate),
       endDate: dateFormat(endDate)
     };
+    console.log("filter", filter);
     if (this.showAllAccount) {
       this.store.dispatch(searchAllAccountTransactions({filter}));
     } else {

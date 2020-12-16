@@ -1,8 +1,8 @@
-<mat-toolbar *ngIf="donationsBanner.enabled">
+<mat-toolbar *ngIf="donationsBanner.enabled"  [@slideInOut]>
   <mat-toolbar-row fxLayout fxLayout.lt-md="column" class="donations-banner-row">
-    <div fxHide.lt-md>
+    <div>
       <div class="icon-wrapper" fxLayoutAlign="center center">
-        <mat-icon *ngIf="donationsBanner.content.icon" id="donations-icon" color="accent" dense> {{donationsBanner.content.icon}}</mat-icon>
+        <img src="/assets/icons/cross.png" alt="image">
       </div>
     </div>
     <div
@@ -16,18 +16,23 @@
 
       <div fxFlex class="announcement-paragraph" [innerHTML]="donationsBanner.content.announcement"></div>
     </div>
-    <div fxFlex fxLayoutAlign="flex-start" class="buttons-div" fxLayoutAlign.lt-md="start center">
-      <button mat-flat-button class="dismiss-button" (click)="onDismiss()" color="accent">
-        {{ donationsBanner.content.dismissButtonText }}
-      </button>
 
-      <a mat-flat-button routerLink="/donations" (click)="onAction()" color="primary">
+    <div fxFlex fxLayoutAlign="flex-start" class="buttons-div" fxLayoutAlign.lt-md="start center">
+      <a mat-flat-button routerLink="/donations" (click)="onAction()" color="accent">
         {{ donationsBanner.content.actionButtonText }}
       </a>
+      <button
+        mat-stroked-button
+        class="dismiss-button mat-stroked-button mat-button-base"
+        (click)="onDismiss()"
+        color="primary"
+      >
+        {{ donationsBanner.content.dismissButtonText }}
+      </button>
     </div>
 
     <div fxFlex fxHide.lt-md fxLayoutAlign="flex-end">
-      <button  class="close-button" (click)="onDismiss()" mat-icon-button>
+      <button class="close-button" (click)="onDismiss()" mat-icon-button>
         <mat-icon>close</mat-icon>
       </button>
     </div>

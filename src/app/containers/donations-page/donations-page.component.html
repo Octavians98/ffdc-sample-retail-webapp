@@ -6,35 +6,26 @@
     </div>
     <div class="account-page-acount-overview-info-detail">
       <div class="uxg-subtitle-2">Available Balance:</div>
-      <div class="uxg-h5">{{ allAcountsOverview.available | currency }}</div>
+      <div class="uxg-h5">{{ availableBalance | currency }}</div>
     </div>
   </div>
-  <div class="acount-page-all-acount-text uxg-display-4">Select an account</div>
+  <div class="acount-page-all-acount-text uxg-display-4">Select an account*</div>
   <mat-form-field appearance="fill">
     <mat-select placeholder="--" [(ngModel)]="selectedAccount">
-      <mat-option *ngFor="let account of accounts" [value]="account.accountId">
+      <mat-option *ngFor="let account of accounts" [value]="account">
         {{ account.nickname }}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <div class="acount-page-all-acount-text uxg-display-4">Select an ammount</div>
+  <div class="acount-page-all-acount-text uxg-display-4">Select an ammount*</div>
   <mat-form-field appearance="fill">
     <input [(ngModel)]="donationAmmount" type="number" matInput placeholder="Ex. $10" />
   </mat-form-field>
-  <div class="acount-page-all-acount-text uxg-display-4">How often do you want to support this cause?</div>
-  <div fxLayout="row">
-    <button mat-flat-button (click)="setInterval(6)" class="donate-button" color="accent">
-      Every 6 months
-    </button>
-    <button mat-flat-button (click)="setInterval(6)" class="donate-button" color="accent">
-      Every 12 months
-    </button>
-  </div>
   <div>
     <button mat-stroked-button color="accent">
       Cancel
     </button>
-    <button mat-flat-button color="accent">
+    <button mat-flat-button color="accent" (click)="makeTransaction()">
       Donate!
     </button>
   </div>

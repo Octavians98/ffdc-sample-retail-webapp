@@ -1,5 +1,5 @@
 <ffdc-app-layout>
-  <ffdc-donations-banner></ffdc-donations-banner>
+  <ffdc-donations-banner *ngIf="showBanner"></ffdc-donations-banner>
   <ffdc-navbar-content [outlined]="(isHomePage$ | async)">
       <ffdc-navbar-home homeUrl="." [dense]="!(isHomePage$ | async)"></ffdc-navbar-home>
       <ffdc-navbar-menu *ngIf="!(isHomePage$ | async)" [navigationNodes]="navbarMenuData"></ffdc-navbar-menu>

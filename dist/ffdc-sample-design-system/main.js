@@ -316,7 +316,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ffdc-app-layout>\r\n  <ffdc-donations-banner></ffdc-donations-banner>\r\n  <ffdc-navbar-content [outlined]=\"(isHomePage$ | async)\">\r\n      <ffdc-navbar-home homeUrl=\".\" [dense]=\"!(isHomePage$ | async)\"></ffdc-navbar-home>\r\n      <ffdc-navbar-menu *ngIf=\"!(isHomePage$ | async)\" [navigationNodes]=\"navbarMenuData\"></ffdc-navbar-menu>\r\n      <ffdc-navbar-action-container>\r\n        <ffdc-navbar-action-item icon=\"search\" title=\"Search\">\r\n          <button mat-icon-button color=\"neutral\">\r\n            <mat-icon>search</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n        <ffdc-navbar-action-item icon=\"notifications\" title=\"Notifications\">\r\n          <button mat-icon-button color=\"neutral\">\r\n            <mat-icon>notifications</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n        <ffdc-navbar-action-item icon=\"help_outline\" title=\"Help\">\r\n          <button mat-icon-button color=\"neutral\">\r\n            <mat-icon>help_outline</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n        <ffdc-navbar-action-item icon=\"apps\" title=\"Applications\">\r\n          <button mat-icon-button color=\"neutral\">\r\n            <mat-icon>apps</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n        <ffdc-navbar-action-item icon=\"account_circle\" title=\"My account\">\r\n          <button mat-icon-button color=\"gradient\">\r\n            <mat-icon>account_circle</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n      </ffdc-navbar-action-container>\r\n    <!-- </mat-toolbar> -->\r\n  </ffdc-navbar-content>\r\n  <ffdc-sidenav-content *ngIf=\"!(isHomePage$ | async)\">\r\n    <div class=\"uxg-nav-header\">\r\n      <mat-card class=\"uxg-card-product clickable\">\r\n        <span class=\"uxg-h3 uxg-card-product-name\">Ac</span>\r\n      </mat-card>\r\n    </div>\r\n    <mat-nav-list class=\"uxg-nav-list\">\r\n      <a mat-list-item routerLink = \"/\" class=\"uxg-list-item-selected\">\r\n        <mat-icon mat-list-icon>home</mat-icon>\r\n        <p>Home</p>\r\n      </a>\r\n      <a mat-list-item routerLink=\"/accounts\">\r\n        <mat-icon mat-list-icon>dashboard</mat-icon>\r\n        <p>Accounts</p>\r\n      </a>\r\n      <a mat-list-item>\r\n        <mat-icon mat-list-icon>notifications</mat-icon>\r\n        <p>Insights</p>\r\n      </a>\r\n      <a mat-list-item>\r\n        <mat-icon mat-list-icon>extension</mat-icon>\r\n        <p>RIB & Documents</p>\r\n      </a>\r\n      <a mat-list-item>\r\n        <mat-icon mat-list-icon>settings</mat-icon>\r\n        <p>Transfer</p>\r\n      </a>\r\n      <mat-divider></mat-divider>\r\n    </mat-nav-list>\r\n    <mat-nav-list class=\"uxg-link-list\">\r\n      <a mat-list-item>\r\n        <mat-icon mat-list-icon>help</mat-icon>\r\n        <p>Help</p>\r\n      </a>\r\n      <a mat-list-item href=\"/logout\">\r\n        <mat-icon  mat-list-icon>power_settings_new</mat-icon>\r\n        <p>Sign out</p>\r\n      </a>\r\n    </mat-nav-list>\r\n  </ffdc-sidenav-content>\r\n  <router-outlet></router-outlet>\r\n</ffdc-app-layout>\r\n"
+module.exports = "<ffdc-app-layout>\r\n  <ffdc-donations-banner *ngIf=\"showBanner\"></ffdc-donations-banner>\r\n  <ffdc-navbar-content [outlined]=\"(isHomePage$ | async)\">\r\n      <ffdc-navbar-home homeUrl=\".\" [dense]=\"!(isHomePage$ | async)\"></ffdc-navbar-home>\r\n      <ffdc-navbar-menu *ngIf=\"!(isHomePage$ | async)\" [navigationNodes]=\"navbarMenuData\"></ffdc-navbar-menu>\r\n      <ffdc-navbar-action-container>\r\n        <ffdc-navbar-action-item icon=\"search\" title=\"Search\">\r\n          <button mat-icon-button color=\"neutral\">\r\n            <mat-icon>search</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n        <ffdc-navbar-action-item icon=\"notifications\" title=\"Notifications\">\r\n          <button mat-icon-button color=\"neutral\">\r\n            <mat-icon>notifications</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n        <ffdc-navbar-action-item icon=\"help_outline\" title=\"Help\">\r\n          <button mat-icon-button color=\"neutral\">\r\n            <mat-icon>help_outline</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n        <ffdc-navbar-action-item icon=\"apps\" title=\"Applications\">\r\n          <button mat-icon-button color=\"neutral\">\r\n            <mat-icon>apps</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n        <ffdc-navbar-action-item icon=\"account_circle\" title=\"My account\">\r\n          <button mat-icon-button color=\"gradient\">\r\n            <mat-icon>account_circle</mat-icon>\r\n          </button>\r\n        </ffdc-navbar-action-item>\r\n      </ffdc-navbar-action-container>\r\n    <!-- </mat-toolbar> -->\r\n  </ffdc-navbar-content>\r\n  <ffdc-sidenav-content *ngIf=\"!(isHomePage$ | async)\">\r\n    <div class=\"uxg-nav-header\">\r\n      <mat-card class=\"uxg-card-product clickable\">\r\n        <span class=\"uxg-h3 uxg-card-product-name\">Ac</span>\r\n      </mat-card>\r\n    </div>\r\n    <mat-nav-list class=\"uxg-nav-list\">\r\n      <a mat-list-item routerLink = \"/\" class=\"uxg-list-item-selected\">\r\n        <mat-icon mat-list-icon>home</mat-icon>\r\n        <p>Home</p>\r\n      </a>\r\n      <a mat-list-item routerLink=\"/accounts\">\r\n        <mat-icon mat-list-icon>dashboard</mat-icon>\r\n        <p>Accounts</p>\r\n      </a>\r\n      <a mat-list-item>\r\n        <mat-icon mat-list-icon>notifications</mat-icon>\r\n        <p>Insights</p>\r\n      </a>\r\n      <a mat-list-item>\r\n        <mat-icon mat-list-icon>extension</mat-icon>\r\n        <p>RIB & Documents</p>\r\n      </a>\r\n      <a mat-list-item>\r\n        <mat-icon mat-list-icon>settings</mat-icon>\r\n        <p>Transfer</p>\r\n      </a>\r\n      <mat-divider></mat-divider>\r\n    </mat-nav-list>\r\n    <mat-nav-list class=\"uxg-link-list\">\r\n      <a mat-list-item>\r\n        <mat-icon mat-list-icon>help</mat-icon>\r\n        <p>Help</p>\r\n      </a>\r\n      <a mat-list-item href=\"/logout\">\r\n        <mat-icon  mat-list-icon>power_settings_new</mat-icon>\r\n        <p>Sign out</p>\r\n      </a>\r\n    </mat-nav-list>\r\n  </ffdc-sidenav-content>\r\n  <router-outlet></router-outlet>\r\n</ffdc-app-layout>\r\n"
 
 /***/ }),
 
@@ -437,7 +437,7 @@ module.exports = "<ng-template><ng-content></ng-content></ng-template>\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar *ngIf=\"donationsBanner.enabled\">\r\n  <mat-toolbar-row fxLayout fxLayout.lt-md=\"column\" class=\"donations-banner-row\">\r\n    <div fxHide.lt-md>\r\n      <div class=\"icon-wrapper\" fxLayoutAlign=\"center center\">\r\n        <mat-icon *ngIf=\"donationsBanner.content.icon\" id=\"donations-icon\" color=\"accent\" dense> {{donationsBanner.content.icon}}</mat-icon>\r\n      </div>\r\n    </div>\r\n    <div\r\n      class=\"text-div\"\r\n      fxLayoutAlign=\"center center\"\r\n      fxLayout.lt-md=\"column\"\r\n      fxLayoutAlign.lt-md=\"center start\"\r\n      fxLayoutFill\r\n    >\r\n      <span class=\"title mr-2\" *ngIf=\"donationsBanner.content.title\">{{ donationsBanner.content.title }}</span>\r\n\r\n      <div fxFlex class=\"announcement-paragraph\" [innerHTML]=\"donationsBanner.content.announcement\"></div>\r\n    </div>\r\n    <div fxFlex fxLayoutAlign=\"flex-start\" class=\"buttons-div\" fxLayoutAlign.lt-md=\"start center\">\r\n      <button mat-flat-button class=\"dismiss-button\" (click)=\"onDismiss()\" color=\"accent\">\r\n        {{ donationsBanner.content.dismissButtonText }}\r\n      </button>\r\n\r\n      <a mat-flat-button routerLink=\"/donations\" (click)=\"onAction()\" color=\"primary\">\r\n        {{ donationsBanner.content.actionButtonText }}\r\n      </a>\r\n    </div>\r\n\r\n    <div fxFlex fxHide.lt-md fxLayoutAlign=\"flex-end\">\r\n      <button  class=\"close-button\" (click)=\"onDismiss()\" mat-icon-button>\r\n        <mat-icon>close</mat-icon>\r\n      </button>\r\n    </div>\r\n  </mat-toolbar-row>\r\n</mat-toolbar>\r\n"
+module.exports = "<mat-toolbar *ngIf=\"donationsBanner.enabled\"  [@slideInOut]>\r\n  <mat-toolbar-row fxLayout fxLayout.lt-md=\"column\" class=\"donations-banner-row\">\r\n    <div>\r\n      <div class=\"icon-wrapper\" fxLayoutAlign=\"center center\">\r\n        <img src=\"/assets/icons/cross.png\" alt=\"image\">\r\n      </div>\r\n    </div>\r\n    <div\r\n      class=\"text-div\"\r\n      fxLayoutAlign=\"center center\"\r\n      fxLayout.lt-md=\"column\"\r\n      fxLayoutAlign.lt-md=\"center start\"\r\n      fxLayoutFill\r\n    >\r\n      <span class=\"title mr-2\" *ngIf=\"donationsBanner.content.title\">{{ donationsBanner.content.title }}</span>\r\n\r\n      <div fxFlex class=\"announcement-paragraph\" [innerHTML]=\"donationsBanner.content.announcement\"></div>\r\n    </div>\r\n\r\n    <div fxFlex fxLayoutAlign=\"flex-start\" class=\"buttons-div\" fxLayoutAlign.lt-md=\"start center\">\r\n      <a mat-flat-button routerLink=\"/donations\" (click)=\"onAction()\" color=\"accent\">\r\n        {{ donationsBanner.content.actionButtonText }}\r\n      </a>\r\n      <button\r\n        mat-stroked-button\r\n        class=\"dismiss-button mat-stroked-button mat-button-base\"\r\n        (click)=\"onDismiss()\"\r\n        color=\"primary\"\r\n      >\r\n        {{ donationsBanner.content.dismissButtonText }}\r\n      </button>\r\n    </div>\r\n\r\n    <div fxFlex fxHide.lt-md fxLayoutAlign=\"flex-end\">\r\n      <button class=\"close-button\" (click)=\"onDismiss()\" mat-icon-button>\r\n        <mat-icon>close</mat-icon>\r\n      </button>\r\n    </div>\r\n  </mat-toolbar-row>\r\n</mat-toolbar>\r\n"
 
 /***/ }),
 
@@ -459,7 +459,7 @@ module.exports = "<mat-card>\r\n  <div class=\"account-transaction-header\">\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"donations-page-overview\">\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Your balance</div>\r\n  <div class=\"account-page-acount-overview-info\">\r\n    <div class=\"round-icon\">\r\n      <mat-icon aria-hidden=\"false\" aria-label=\"Account\">credit_card</mat-icon>\r\n    </div>\r\n    <div class=\"account-page-acount-overview-info-detail\">\r\n      <div class=\"uxg-subtitle-2\">Available Balance:</div>\r\n      <div class=\"uxg-h5\">{{ allAcountsOverview.available | currency }}</div>\r\n    </div>\r\n  </div>\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Select an account</div>\r\n  <mat-form-field appearance=\"fill\">\r\n    <mat-select placeholder=\"--\" [(ngModel)]=\"selectedAccount\">\r\n      <mat-option *ngFor=\"let account of accounts\" [value]=\"account.accountId\">\r\n        {{ account.nickname }}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Select an ammount</div>\r\n  <mat-form-field appearance=\"fill\">\r\n    <input [(ngModel)]=\"donationAmmount\" type=\"number\" matInput placeholder=\"Ex. $10\" />\r\n  </mat-form-field>\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">How often do you want to support this cause?</div>\r\n  <div fxLayout=\"row\">\r\n    <button mat-flat-button (click)=\"setInterval(6)\" class=\"donate-button\" color=\"accent\">\r\n      Every 6 months\r\n    </button>\r\n    <button mat-flat-button (click)=\"setInterval(6)\" class=\"donate-button\" color=\"accent\">\r\n      Every 12 months\r\n    </button>\r\n  </div>\r\n  <div>\r\n    <button mat-stroked-button color=\"accent\">\r\n      Cancel\r\n    </button>\r\n    <button mat-flat-button color=\"accent\">\r\n      Donate!\r\n    </button>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"donations-page-overview\">\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Your balance</div>\r\n  <div class=\"account-page-acount-overview-info\">\r\n    <div class=\"round-icon\">\r\n      <mat-icon aria-hidden=\"false\" aria-label=\"Account\">credit_card</mat-icon>\r\n    </div>\r\n    <div class=\"account-page-acount-overview-info-detail\">\r\n      <div class=\"uxg-subtitle-2\">Available Balance:</div>\r\n      <div class=\"uxg-h5\">{{ availableBalance | currency }}</div>\r\n    </div>\r\n  </div>\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Select an account*</div>\r\n  <mat-form-field appearance=\"fill\">\r\n    <mat-select placeholder=\"--\" [(ngModel)]=\"selectedAccount\">\r\n      <mat-option *ngFor=\"let account of accounts\" [value]=\"account\">\r\n        {{ account.nickname }}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Select an ammount*</div>\r\n  <mat-form-field appearance=\"fill\">\r\n    <input [(ngModel)]=\"donationAmmount\" type=\"number\" matInput placeholder=\"Ex. $10\" />\r\n  </mat-form-field>\r\n  <div>\r\n    <button mat-stroked-button color=\"accent\">\r\n      Cancel\r\n    </button>\r\n    <button mat-flat-button color=\"accent\" (click)=\"makeTransaction()\">\r\n      Donate!\r\n    </button>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -606,9 +606,9 @@ let AppComponent = class AppComponent {
         this.router = router;
         this.cd = cd;
         this.navbarMenuData = [];
+        this.showBanner = false;
         this.isHomePage$ = store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["selectRouteData"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(data => (data ? data.viewId === 'home' : false)));
         Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["combineLatest"])(store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["selectAllAccounts"])), store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["selectRouteParams"])), store.pipe(Object(_ngrx_store__WEBPACK_IMPORTED_MODULE_2__["select"])(_store_reducers__WEBPACK_IMPORTED_MODULE_3__["selectRouteData"]))).subscribe(([accounts, routeParams, routeData]) => {
-            console.log("routeParams", routeParams);
             if (routeData) {
                 console.log("RouteData", routeData);
                 if (routeData.viewId === 'accounts') {
@@ -640,6 +640,14 @@ let AppComponent = class AppComponent {
                 this.cd.markForCheck();
             }
         });
+    }
+    ngOnInit() {
+        this.loading();
+    }
+    loading() {
+        setTimeout(() => {
+            this.showBanner = true;
+        }, 5000);
     }
 };
 AppComponent.ctorParameters = () => [
@@ -1649,6 +1657,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DonationsBannerComponent", function() { return DonationsBannerComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm2015/animations.js");
+
 
 
 let DonationsBannerComponent = class DonationsBannerComponent {
@@ -1657,10 +1667,10 @@ let DonationsBannerComponent = class DonationsBannerComponent {
             enabled: true,
             content: {
                 id: 123,
-                title: 'Donate to Red Cross',
-                dismissButtonText: 'Dismiss',
-                actionButtonText: 'Donate again',
-                announcement: 'Consider donating again to the same organisation again!',
+                title: 'Support Red Cross',
+                dismissButtonText: 'No',
+                actionButtonText: 'Yes',
+                announcement: 'Last year you have donated 50$ Red Cross do you want to help this cause again this year?',
                 icon: 'alarm_on'
             }
         };
@@ -1681,7 +1691,16 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 DonationsBannerComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'ffdc-donations-banner',
-        template: __webpack_require__(/*! raw-loader!./donations-banner.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/donations-banner/donations-banner.component.html")
+        template: __webpack_require__(/*! raw-loader!./donations-banner.component.html */ "./node_modules/raw-loader/index.js!./src/app/components/donations-banner/donations-banner.component.html"),
+        animations: [
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["trigger"])('slideInOut', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["transition"])(':enter', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({ transform: 'translateY(-100%)' }),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["animate"])('280ms ease-in', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({ transform: 'translateY(0%)' }))
+                ]),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["transition"])(':leave', [Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["animate"])('200ms ease-in', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_2__["style"])({ transform: 'translateY(-100%)' }))])
+            ])
+        ]
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
 ], DonationsBannerComponent);
@@ -1837,6 +1856,7 @@ let AccountTransactionComponent = class AccountTransactionComponent {
             startDate: Object(_utils__WEBPACK_IMPORTED_MODULE_6__["dateFormat"])(startDate),
             endDate: Object(_utils__WEBPACK_IMPORTED_MODULE_6__["dateFormat"])(endDate)
         };
+        console.log("filter", filter);
         if (this.showAllAccount) {
             this.store.dispatch(Object(_store_actions_account_transaction_actions__WEBPACK_IMPORTED_MODULE_4__["searchAllAccountTransactions"])({ filter }));
         }
@@ -1949,6 +1969,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _services_account_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/account.service */ "./src/app/services/account.service.ts");
+/* harmony import */ var _store_actions_account_transaction_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../store/actions/account-transaction.actions */ "./src/app/store/actions/account-transaction.actions.ts");
+
 
 
 
@@ -1962,11 +1984,15 @@ let DonationsPageComponent = class DonationsPageComponent {
         this.accountService = accountService;
         this.store = store;
         this.cd = cd;
+        this.accountTransactions = [];
         this.accounts = [];
         this.allAcountsOverview = { current: 0, available: 0 };
         this.donationAmmount = 0;
-        this.donationInterval = 0;
+        this.donated = false;
+        this.availableBalance = 0;
+        this.accountId$ = new rxjs__WEBPACK_IMPORTED_MODULE_5__["ReplaySubject"](1);
         this.destroyed$ = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
+        this.showAllAccount = true;
     }
     ngOnInit() {
         this.store.dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_4__["AccountActions"].loadExtendedAndDetailedAccounts());
@@ -1975,6 +2001,7 @@ let DonationsPageComponent = class DonationsPageComponent {
             .subscribe(accounts => {
             this.accounts = accounts;
             this.allAcountsOverview = this.accountService.getAllAcountOverview(accounts);
+            this.availableBalance = this.allAcountsOverview.available;
             this.cd.markForCheck();
         });
     }
@@ -1983,11 +2010,49 @@ let DonationsPageComponent = class DonationsPageComponent {
         this.destroyed$.next();
         this.destroyed$.complete();
     }
-    setInterval(interval) {
-        this.donationInterval = interval;
-        console.log("donationInterval", this.donationInterval);
+    setInterval() {
         console.log("donationAmmount", this.donationAmmount);
         console.log("selectedAccount", this.selectedAccount);
+    }
+    makeTransaction() {
+        this.availableBalance = this.availableBalance - this.donationAmmount;
+        console.log(this.availableBalance);
+        const accountId = this.selectedAccount.accountId;
+        const filter = {
+            endDate: "2020-01-31",
+            startDate: "2020-12-31"
+        };
+        const transactionId = "6987152201912160001";
+        // console.log(accountId);
+        // this.store
+        //   .pipe(
+        //     select(selectAllAccountTransactions),
+        //     takeUntil(this.destroyed$)
+        //   )
+        //   .subscribe(accountTransactions => {
+        //     this.accountTransactions = accountTransactions;
+        //     this.cd.markForCheck();
+        //   });
+        // const getAllOrSingleAccountTransaction = iif(
+        //   () => this.showAllAccount,
+        //   this.store.pipe(select(selectAccountTransactionsWithAccountInfo)),
+        //   this.accountId$.pipe(
+        //     switchMap(accountId =>
+        //       this.store.pipe(
+        //         select(selectAccountTransactionsWithAccountInfoForAccount, { accountId })
+        //       )
+        //     )
+        //   )
+        // ).subscribe(transactions=>{
+        //   console.log("transactions", transactions)
+        // })
+        //   console.log(getAllOrSingleAccountTransaction);
+        // this.store.dispatch(searchAccountTransactions({accountId, filter})).subscribe(accountTransactions => {
+        //   this.accountTransactions = accountTransactions;
+        //   console.log(this.accountTransactions);
+        //   this.cd.markForCheck();
+        // });
+        this.store.dispatch(Object(_store_actions_account_transaction_actions__WEBPACK_IMPORTED_MODULE_8__["updateAccountTransaction"])({ accountId, transactionId }));
     }
 };
 DonationsPageComponent.ctorParameters = () => [
@@ -2605,7 +2670,7 @@ GlobalsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!***********************************!*\
   !*** ./src/app/services/index.ts ***!
   \***********************************/
-/*! exports provided: AuthService, AccountApiService, UserService, GlobalsService, AccountTransactionApiService */
+/*! exports provided: AccountApiService, AuthService, UserService, GlobalsService, AccountTransactionApiService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
