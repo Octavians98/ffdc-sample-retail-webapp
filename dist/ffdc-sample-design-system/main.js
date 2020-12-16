@@ -437,7 +437,7 @@ module.exports = "<ng-template><ng-content></ng-content></ng-template>\r\n"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar *ngIf=\"donationsBanner.enabled\"  [@slideInOut]>\r\n  <mat-toolbar-row fxLayout fxLayout.lt-md=\"column\" class=\"donations-banner-row\">\r\n    <div>\r\n      <div class=\"icon-wrapper\" fxLayoutAlign=\"center center\">\r\n        <img src=\"/assets/icons/cross.png\" alt=\"image\">\r\n      </div>\r\n    </div>\r\n    <div\r\n      class=\"text-div\"\r\n      fxLayoutAlign=\"center center\"\r\n      fxLayout.lt-md=\"column\"\r\n      fxLayoutAlign.lt-md=\"center start\"\r\n      fxLayoutFill\r\n    >\r\n      <span class=\"title mr-2\" *ngIf=\"donationsBanner.content.title\">{{ donationsBanner.content.title }}</span>\r\n\r\n      <div fxFlex class=\"announcement-paragraph\" [innerHTML]=\"donationsBanner.content.announcement\"></div>\r\n    </div>\r\n\r\n    <div fxFlex fxLayoutAlign=\"flex-start\" class=\"buttons-div\" fxLayoutAlign.lt-md=\"start center\">\r\n      <a mat-flat-button routerLink=\"/donations\" (click)=\"onAction()\" color=\"accent\">\r\n        {{ donationsBanner.content.actionButtonText }}\r\n      </a>\r\n      <button\r\n        mat-stroked-button\r\n        class=\"dismiss-button mat-stroked-button mat-button-base\"\r\n        (click)=\"onDismiss()\"\r\n        color=\"primary\"\r\n      >\r\n        {{ donationsBanner.content.dismissButtonText }}\r\n      </button>\r\n    </div>\r\n\r\n    <div fxFlex fxHide.lt-md fxLayoutAlign=\"flex-end\">\r\n      <button class=\"close-button\" (click)=\"onDismiss()\" mat-icon-button>\r\n        <mat-icon>close</mat-icon>\r\n      </button>\r\n    </div>\r\n  </mat-toolbar-row>\r\n</mat-toolbar>\r\n"
+module.exports = "<mat-toolbar *ngIf=\"donationsBanner.enabled\"  [@slideInOut]>\r\n  <mat-toolbar-row fxLayout fxLayout.lt-md=\"column\" class=\"donations-banner-row\">\r\n    <div>\r\n      <div class=\"icon-wrapper\" fxLayoutAlign=\"center center\">\r\n        <img src=\"/assets/icons/cross.png\" alt=\"image\">\r\n      </div>\r\n    </div>\r\n    <div\r\n      class=\"text-div\"\r\n      fxLayoutAlign=\"center center\"\r\n      fxLayout.lt-md=\"column\"\r\n      fxLayoutAlign.lt-md=\"center start\"\r\n      fxLayoutFill\r\n    >\r\n      <span class=\"title mr-2\" *ngIf=\"donationsBanner.content.title\">{{ donationsBanner.content.title }}</span>\r\n\r\n      <div fxFlex class=\"announcement-paragraph\" [innerHTML]=\"donationsBanner.content.announcement\"></div>\r\n    </div>\r\n\r\n    <div fxFlex fxLayoutAlign=\"flex-start\" class=\"buttons-div\" fxLayoutAlign.lt-md=\"start center\">\r\n      <a mat-flat-button routerLink=\"/donations\" (click)=\"onAction()\" color=\"accent\">\r\n        {{ donationsBanner.content.actionButtonText }}\r\n      </a>\r\n      <button\r\n        mat-stroked-button\r\n        class=\"dismiss-button mat-stroked-button mat-button-base\"\r\n        (click)=\"onDismiss()\"\r\n        color=\"primary\"\r\n      >\r\n        {{ donationsBanner.content.dismissButtonText }}\r\n      </button>\r\n    </div>\r\n\r\n    <div fxFlex fxHide.lt-md fxLayoutAlign=\"flex-end\">\r\n      <button class=\"close-button\" (click)=\"onDismiss()\" mat-icon-button>\r\n        <mat-icon>close</mat-icon>\r\n      </button>\r\n    </div>\r\n  </mat-toolbar-row>\r\n</mat-toolbar>\r\n\r\n"
 
 /***/ }),
 
@@ -459,7 +459,7 @@ module.exports = "<mat-card>\r\n  <div class=\"account-transaction-header\">\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"donations-page-overview\">\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Your balance</div>\r\n  <div class=\"account-page-acount-overview-info\">\r\n    <div class=\"round-icon\">\r\n      <mat-icon aria-hidden=\"false\" aria-label=\"Account\">credit_card</mat-icon>\r\n    </div>\r\n    <div class=\"account-page-acount-overview-info-detail\">\r\n      <div class=\"uxg-subtitle-2\">Available Balance:</div>\r\n      <div class=\"uxg-h5\">{{ availableBalance | currency }}</div>\r\n    </div>\r\n  </div>\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Select an account*</div>\r\n  <mat-form-field appearance=\"fill\">\r\n    <mat-select placeholder=\"--\" [(ngModel)]=\"selectedAccount\">\r\n      <mat-option *ngFor=\"let account of accounts\" [value]=\"account\">\r\n        {{ account.nickname }}\r\n      </mat-option>\r\n    </mat-select>\r\n  </mat-form-field>\r\n  <div class=\"acount-page-all-acount-text uxg-display-4\">Select an ammount*</div>\r\n  <mat-form-field appearance=\"fill\">\r\n    <input [(ngModel)]=\"donationAmmount\" type=\"number\" matInput placeholder=\"Ex. $10\" />\r\n  </mat-form-field>\r\n  <div>\r\n    <button mat-stroked-button color=\"accent\">\r\n      Cancel\r\n    </button>\r\n    <button mat-flat-button color=\"accent\" (click)=\"makeTransaction()\">\r\n      Donate!\r\n    </button>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"donations-page-overview\">\r\n  <ng-container *ngIf=\"showThanks; else thanks\">\r\n    <div class=\"acount-page-all-acount-text uxg-display-4\">Your balance</div>\r\n    <div class=\"account-page-acount-overview-info\">\r\n      <div class=\"round-icon\">\r\n        <mat-icon aria-hidden=\"false\" aria-label=\"Account\">credit_card</mat-icon>\r\n      </div>\r\n      <div class=\"account-page-acount-overview-info-detail\">\r\n        <div class=\"uxg-subtitle-2\">Available Balance:</div>\r\n        <div class=\"uxg-h5\">{{ availableBalance | currency }}</div>\r\n      </div>\r\n    </div>\r\n    <div class=\"acount-page-all-acount-text uxg-display-4\">Select an account*</div>\r\n    <mat-form-field appearance=\"fill\">\r\n      <mat-select placeholder=\"--\" [(ngModel)]=\"selectedAccount\">\r\n        <mat-option *ngFor=\"let account of accounts\" [value]=\"account\">\r\n          {{ account.nickname }}\r\n        </mat-option>\r\n      </mat-select>\r\n    </mat-form-field>\r\n    <div class=\"acount-page-all-acount-text uxg-display-4\">Select an ammount*</div>\r\n    <mat-form-field appearance=\"fill\">\r\n      <input [(ngModel)]=\"donationAmmount\" type=\"number\" matInput placeholder=\"Ex. $10\" />\r\n    </mat-form-field>\r\n    <div fxFlex fxLayout=\"row\" fxLayoutAlign=\"space-around center\">\r\n      <button mat-flat-button class=\"donate-button\" color=\"accent\" (click)=\"makeTransaction()\">\r\n        Donate!\r\n      </button>\r\n    </div>\r\n  </ng-container>\r\n\r\n  <ng-template #thanks>\r\n    <div class=\"acount-page-all-acount-text thanks-text uxg-display-4\">Thank you for supporting Red Cross again this year</div>\r\n     </ng-template>\r\n \r\n</div>\r\n"
 
 /***/ }),
 
@@ -1969,8 +1969,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _services_account_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/account.service */ "./src/app/services/account.service.ts");
-/* harmony import */ var _store_actions_account_transaction_actions__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../store/actions/account-transaction.actions */ "./src/app/store/actions/account-transaction.actions.ts");
-
 
 
 
@@ -1990,6 +1988,7 @@ let DonationsPageComponent = class DonationsPageComponent {
         this.donationAmmount = 0;
         this.donated = false;
         this.availableBalance = 0;
+        this.showThanks = true;
         this.accountId$ = new rxjs__WEBPACK_IMPORTED_MODULE_5__["ReplaySubject"](1);
         this.destroyed$ = new rxjs__WEBPACK_IMPORTED_MODULE_5__["Subject"]();
         this.showAllAccount = true;
@@ -2017,12 +2016,12 @@ let DonationsPageComponent = class DonationsPageComponent {
     makeTransaction() {
         this.availableBalance = this.availableBalance - this.donationAmmount;
         console.log(this.availableBalance);
-        const accountId = this.selectedAccount.accountId;
-        const filter = {
-            endDate: "2020-01-31",
-            startDate: "2020-12-31"
-        };
-        const transactionId = "6987152201912160001";
+        // const accountId = this.selectedAccount.accountId;
+        // const filter = {
+        //   endDate: "2020-01-31",
+        //   startDate: "2020-12-31"
+        // }
+        // const transactionId = "6987152201912160001"
         // console.log(accountId);
         // this.store
         //   .pipe(
@@ -2052,7 +2051,8 @@ let DonationsPageComponent = class DonationsPageComponent {
         //   console.log(this.accountTransactions);
         //   this.cd.markForCheck();
         // });
-        this.store.dispatch(Object(_store_actions_account_transaction_actions__WEBPACK_IMPORTED_MODULE_8__["updateAccountTransaction"])({ accountId, transactionId }));
+        this.showThanks = false;
+        // this.store.dispatch(updateAccountTransaction({accountId, transactionId}))
     }
 };
 DonationsPageComponent.ctorParameters = () => [
@@ -2097,6 +2097,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _account_transaction_account_transaction_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../account-transaction/account-transaction.module */ "./src/app/containers/account-transaction/account-transaction.module.ts");
 /* harmony import */ var _material_modules__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../material-modules */ "./src/app/material-modules.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm2015/flex-layout.js");
+
 
 
 
@@ -2113,6 +2115,7 @@ DonationsPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         declarations: [_donations_page_component__WEBPACK_IMPORTED_MODULE_3__["DonationsPageComponent"]],
         imports: [
             _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
+            _angular_flex_layout__WEBPACK_IMPORTED_MODULE_9__["FlexLayoutModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"],

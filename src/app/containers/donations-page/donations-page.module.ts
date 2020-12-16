@@ -6,11 +6,13 @@ import { AccountListModule } from '../../components/account-list/account-list.mo
 import { AccountTransactionModule } from '../account-transaction/account-transaction.module';
 import { MaterialModules } from '../../material-modules';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [DonationsPageComponent],
   imports: [
     FormsModule,
+    FlexLayoutModule,
     ReactiveFormsModule,
     CommonModule,
     RouterModule,

@@ -37,6 +37,7 @@ export class DonationsPageComponent implements OnInit, OnDestroy {
   donated: boolean = false;
   donationAccount: AccountEntity | undefined;
   availableBalance = 0;
+  showThanks = true;
   private accountId$ = new ReplaySubject<string>(1);
   
 
@@ -75,12 +76,12 @@ export class DonationsPageComponent implements OnInit, OnDestroy {
   makeTransaction() {
     this.availableBalance = this.availableBalance - this.donationAmmount;
     console.log(this.availableBalance);
-    const accountId = this.selectedAccount.accountId;
-    const filter = {
-      endDate: "2020-01-31",
-      startDate: "2020-12-31"
-    }
-    const transactionId = "6987152201912160001"
+    // const accountId = this.selectedAccount.accountId;
+    // const filter = {
+    //   endDate: "2020-01-31",
+    //   startDate: "2020-12-31"
+    // }
+    // const transactionId = "6987152201912160001"
     // console.log(accountId);
     // this.store
     //   .pipe(
@@ -112,7 +113,11 @@ export class DonationsPageComponent implements OnInit, OnDestroy {
     //   console.log(this.accountTransactions);
     //   this.cd.markForCheck();
     // });
-    this.store.dispatch(updateAccountTransaction({accountId, transactionId}))
+
+      this.showThanks = false; 
+
+    // this.store.dispatch(updateAccountTransaction({accountId, transactionId}))
+    
   }
   
 }

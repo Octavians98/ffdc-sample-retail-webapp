@@ -4,11 +4,18 @@
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
   $warn: map-get($theme, warn);
-  
+
   ffdc-donations-page {
+    .thanks-text {
+      align-self: center;
+    }
     background-color: mat-color($background, 'app-bar');
-    
-  } 
+    @media all and (max-width: 959.9px) {
+      .donate-button {
+        width: 50% !important;
+      }
+    }
+  }
 
   .donations-page {
     .account-page-acount-overview {
